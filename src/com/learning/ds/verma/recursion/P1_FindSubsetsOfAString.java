@@ -7,7 +7,7 @@ public class P1_FindSubsetsOfAString {
 
     private static void findSubsets(String inString, String outSoFar) {
         if (inString == null || inString.length() == 0) {
-            System.out.println("subset: "+outSoFar);
+            System.out.println("subset: {" + outSoFar + "}");
             return;
         }
 

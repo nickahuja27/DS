@@ -2,7 +2,7 @@ package com.learning.ds.takeUfwd.recursion;
 
 import java.util.ArrayList;
 
-public class P7_PrintAnySubsequenceWithSum {
+public class P07_PrintAnySubsequenceWithSum {
   private static int SUM = 2;
 
   public static void main(String[] args) {

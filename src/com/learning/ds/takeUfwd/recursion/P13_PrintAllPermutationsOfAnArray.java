@@ -2,7 +2,7 @@ package com.learning.ds.takeUfwd.recursion;
 
 import java.util.Arrays;
 
-public class P13_PrintAllPermutationsOdAnArray {
+public class P13_PrintAllPermutationsOfAnArray {
   public static void main(String[] args) {
     int[] inArray = {1, 2, 3};
     printPermutations(0, inArray);

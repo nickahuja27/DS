@@ -2,7 +2,7 @@ package com.learning.ds.takeUfwd.recursion;
 
 import java.util.ArrayList;
 
-public class P8_CombinationSum {
+public class P08_CombinationSum {
   private static int TARGET = 7;
 
   public static void main(String[] args) {

@@ -2,7 +2,7 @@ package com.learning.ds.takeUfwd.recursion;
 
 import java.util.ArrayList;
 
-public class L17_PalindromePartitioning {
+public class P17_PalindromePartitioning {
   public static void main(String[] args) {
     partition(0, "aabb", new ArrayList<>());
   }

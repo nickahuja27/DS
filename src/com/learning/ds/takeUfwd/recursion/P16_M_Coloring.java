@@ -2,7 +2,7 @@ package com.learning.ds.takeUfwd.recursion;
 
 import java.util.ArrayList;
 
-public class L16_M_Coloring {
+public class P16_M_Coloring {
   private static int numOfNodes = 4;
   private static int numOfColors = 3;
   private static int[] nodeColors = new int[numOfNodes];

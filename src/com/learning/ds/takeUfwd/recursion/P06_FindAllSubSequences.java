@@ -2,7 +2,7 @@ package com.learning.ds.takeUfwd.recursion;
 
 import java.util.ArrayList;
 
-public class P6_FindAllSubSequences {
+public class P06_FindAllSubSequences {
   public static void main(String[] args) {
     int[] inArray = {3,1,2};
     printSubSequences(0, inArray, new ArrayList<>());

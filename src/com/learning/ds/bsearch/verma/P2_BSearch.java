@@ -3,7 +3,7 @@
 public class P2_BSearch {
     public static void main(String[] args) {
         int[] numArray = {1,3,6,7,8,9,10,12,13,15,16};
-        int numFound = findNum(numArray, 116, 0, numArray.length - 1);
+        int numFound = findNum(numArray, 16, 0, numArray.length - 1);
         System.out.println("Num found: " + numFound);
     }
 

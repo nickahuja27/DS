@@ -1,4 +1,4 @@
-package com.learning.ds.graph.takeUfwd;
+package com.template.ds.graph.takeUfwd;
 
 import com.common.WeightedEdge;
 
@@ -21,27 +21,7 @@ public class P32_DijkstraShortestPath_PriorityQueue {
   }
 
   private static void findShortestPath(ArrayList<ArrayList<WeightedEdge>> adjList) {
-    PriorityQueue<WeightedEdge> pQueue =
-        new PriorityQueue<>((edge1, edge2) -> edge1.weight - edge2.weight);
-    pQueue.add(new WeightedEdge(0, 0));
-    distance[SRC_NODE] = 0;
 
-    while (!pQueue.isEmpty()) {
-      WeightedEdge tempNode = pQueue.poll();
-      visited[tempNode.nodeValue] = true;
-
-      ArrayList<WeightedEdge> neighbors = adjList.get(tempNode.nodeValue);
-      for (int i = 0; i < neighbors.size(); i++) {
-        WeightedEdge neighbor = neighbors.get(i);
-        int oldValue = distance[neighbor.nodeValue];
-        int newValue = distance[tempNode.nodeValue] + neighbor.weight;
-        distance[neighbor.nodeValue] = Math.min(oldValue, newValue);
-
-        if (!visited[neighbor.nodeValue]) {
-          pQueue.add(neighbor);
-        }
-      }
-    }
   }
 
   public static ArrayList<ArrayList<WeightedEdge>> createGraph() {

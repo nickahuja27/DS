@@ -1,5 +1,7 @@
 package com.learning.ds.graph.takeUfwd;
 
+import com.common.WeightedEdge;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;

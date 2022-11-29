@@ -1,4 +1,4 @@
-package com.learning.ds.graph.takeUfwd;
+package com.common;
 
 public class WeightedEdge {
   public int nodeValue;

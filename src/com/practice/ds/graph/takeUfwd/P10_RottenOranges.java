@@ -1,5 +1,8 @@
 package com.practice.ds.graph.takeUfwd;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class P10_RottenOranges {
     private static int[][] matrix = {{2,1,1},
             {1,1,0},
@@ -14,7 +17,11 @@ public class P10_RottenOranges {
 
     public static int getTime(int row, int col) {
         int minTime = 0;
-
+        Queue<Pair> queue = new LinkedList<>();
+        queue.add(new Pair(row, col, 0));
+        while (!queue.isEmpty()) {
+            Pair tempPair = queue.poll();
+        }
 
         return minTime;
     }

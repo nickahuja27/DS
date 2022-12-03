@@ -68,4 +68,8 @@ public class GraphNode<T> {
     public Map<GraphNode<T>, Integer> getWeightedAdjNodesMap() {
         return weightedAdjNodes;
     }
+
+    public String toString() {
+        return ""+value;
+    }
 }

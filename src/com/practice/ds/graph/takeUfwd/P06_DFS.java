@@ -2,13 +2,27 @@ package com.practice.ds.graph.takeUfwd;
 
 import com.learning.ds.GraphNode;
 
+import java.util.List;
+
 public class P06_DFS {
     public static void main(String[] args) {
+        boolean[] visited = new boolean[9];
         GraphNode<Integer> root = createGraph();
-        dfs(root);
+        dfs(root, visited);
     }
 
-    public static void dfs(GraphNode<Integer> node) {
+    public static void dfs(GraphNode<Integer> node, boolean visited[]) {
+        if(node == null)
+            return;
+
+        visited[node.value] = true;
+        System.out.println(node.value);
+        List<GraphNode<Integer>> neighbors = node.neighbours;
+        for(GraphNode<Integer> neighbor : neighbors) {
+            if(!visited[neighbor.value]) {
+                dfs(neighbor, visited);
+            }
+        }
 
     }
     public static GraphNode<Integer> createGraph() {

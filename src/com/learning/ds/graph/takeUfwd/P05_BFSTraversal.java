@@ -1,15 +1,29 @@
-package com.practice.ds.graph.takeUfwd;
+package com.learning.ds.graph.takeUfwd;
 
 import com.learning.ds.GraphNode;
 
-public class P01_BFSTraversal {
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class P05_BFSTraversal {
     public static void main(String[] args) {
         GraphNode<Integer> root = createGraph();
         bfs(root);
     }
 
     public static void bfs(GraphNode<Integer> node) {
-
+        Queue<GraphNode<Integer>> queue = new LinkedList<>();
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            GraphNode<Integer> tempNode = queue.poll();
+            System.out.println(" " + tempNode.value);
+            for(GraphNode<Integer> neighbor : tempNode.neighbours) {
+                if(!neighbor.visited) {
+                    queue.add(neighbor);
+                    neighbor.visited = true;
+                }
+            }
+        }
     }
 
     public static GraphNode<Integer> createGraph() {

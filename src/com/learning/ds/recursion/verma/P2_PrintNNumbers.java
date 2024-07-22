@@ -10,6 +10,6 @@ public class P2_PrintNNumbers {
             return;
 
         print(num - 1);
-        System.out.println(num);
+        System.out.print(" " + num);
     }
 }

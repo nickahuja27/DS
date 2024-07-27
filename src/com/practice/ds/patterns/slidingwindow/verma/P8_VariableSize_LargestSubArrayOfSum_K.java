@@ -1,4 +1,4 @@
-package com.learning.ds.patterns.slidingwindow.verma;
+package com.practice.ds.patterns.slidingwindow.verma;
 
 /*
   while(j < size) {
@@ -11,7 +11,7 @@ package com.learning.ds.patterns.slidingwindow.verma;
         3. remove calculations for i
         i++
       }
-      j++
+      j++;
     }
     if(condition == k) {
       2. Answer Calculations
@@ -32,11 +32,10 @@ public class P8_VariableSize_LargestSubArrayOfSum_K {
         int end = 0;
         int sumSoFar = 0;
 
-        while (end < inArray.length) {
+        while (start <= end && end < inArray.length) {
             sumSoFar += inArray[end];
-
-            if (sumSoFar > sumToFind) {
-                while (start < end && sumSoFar > sumToFind) {
+            if(sumSoFar > sumToFind) {
+                while (sumSoFar > sumToFind) {
                     sumSoFar -= inArray[start];
                     start++;
                 }

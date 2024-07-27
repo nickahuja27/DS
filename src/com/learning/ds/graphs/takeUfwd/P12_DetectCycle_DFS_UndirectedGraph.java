@@ -20,7 +20,6 @@ public class P12_DetectCycle_DFS_UndirectedGraph {
                     System.out.println("Cycle Detected...");
                     return;
                 }
-                //visited[neighbor.value] = true;
                 dfs(neighbor, node.value);
             }
         }

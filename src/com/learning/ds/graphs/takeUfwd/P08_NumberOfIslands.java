@@ -27,7 +27,7 @@ public class P08_NumberOfIslands {
                 }
             }
         }
-        System.out.println("Number os Islands: " + numOfIslands);
+        System.out.println("Number of Islands: " + numOfIslands);
     }
 
     private static void dfs(int row, int col) {

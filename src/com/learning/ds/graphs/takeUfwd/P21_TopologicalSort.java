@@ -12,7 +12,8 @@ public class P21_TopologicalSort {
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> adjList = createGraph();
         for(int i = 0; i < numOfNodes; i++) {
-            dfs(adjList, i);
+            if(!visited[i])
+                dfs(adjList, i);
         }
 
         while (!stack.isEmpty()) {

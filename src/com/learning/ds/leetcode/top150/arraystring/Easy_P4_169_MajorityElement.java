@@ -1,6 +1,6 @@
 package com.learning.ds.leetcode.top150.arraystring;
 
-public class East_P4_169_MajorityElement {
+public class Easy_P4_169_MajorityElement {
     public static void main(String[] args) {
         int[] inArray = {7, 1, 5, 3, 6, 4};
         findMaxProfit(inArray);

@@ -19,7 +19,6 @@ public class P2_InsertInterval {
         stack.push(intervalsList.get(0));
         int index = 1;
         while (index < intervalsList.size()) {
-            Interval tempInterval = intervalsList.get(index);
             Interval poppedInterval = stack.pop();
             if (isBefore(insertInterval, poppedInterval)) {
                 stack.push(insertInterval);

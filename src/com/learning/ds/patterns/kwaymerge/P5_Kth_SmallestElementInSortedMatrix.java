@@ -20,15 +20,15 @@ public class P5_Kth_SmallestElementInSortedMatrix {
             pQueue.add(new Pair(inArray[i][0], i, 0));
         }
 
-        while (!pQueue.isEmpty() && K > 1) {
+        while (!pQueue.isEmpty()) {
             Pair pair = pQueue.poll();
-            K--;
-            if(pair.index < inArray[pair.row].length) {
+            if(pair.index < inArray[pair.row].length - 1) {
                 pQueue.add(new Pair(inArray[pair.row][pair.index + 1], pair.row, pair.index + 1));
             }
+            K--;
+            if(K == 0)
+                System.out.println("Kth smallest element is: " + pair.number);
         }
-
-        System.out.println("Kth smallest element is: " + pQueue.poll().number);
     }
 
     private static class Pair{

@@ -21,7 +21,9 @@ public class P3_Find_K_PairsWithSmallestSums {
         while (!pQueue.isEmpty() && K > 0) {
             Pair removedPair = pQueue.remove();
             K--;
+
             System.out.println("Kth Element is: [" + inArray1[removedPair.index1] + ", " + inArray2[removedPair.index2] + "]");
+
             if (removedPair.index2 + 1 < inArray2.length) {
                 int sum = inArray1[removedPair.index1] + inArray2[removedPair.index2 + 1];
                 pQueue.add(new Pair(sum, removedPair.index1, removedPair.index2 + 1));

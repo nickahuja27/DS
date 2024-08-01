@@ -2,7 +2,7 @@ package com.learning.ds.leetcode.top150.arraystring;
 
 import java.util.HashMap;
 
-public class East_P5_13_RomanToInteger {
+public class Easy_P5_13_RomanToInteger {
     private static int magnitude[] = {1000, 500, 100, 50, 10, 5, 1};
     private static char symbol[] = {'M', 'D', 'C', 'L', 'X', 'V', 'I'};
 

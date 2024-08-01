@@ -26,14 +26,13 @@ public class P32_DijkstraShortestPath_PriorityQueue {
         distance[0] = 0;
         while (!pQueue.isEmpty()) {
             WeightedEdge tempNode = pQueue.poll();
-            if(!visited[tempNode.nodeValue]) {
-                visited[tempNode.nodeValue] = true;
-                ArrayList<WeightedEdge> neighbors = adjList.get(tempNode.nodeValue);
-                for (WeightedEdge neighbor : neighbors) {
-                    distance[neighbor.nodeValue] = Math.min(distance[neighbor.nodeValue],
-                            distance[tempNode.nodeValue] + neighbor.weight);
-                    if(!visited[neighbor.nodeValue])
-                        pQueue.add(new WeightedEdge(neighbor.nodeValue, neighbor.weight));
+            ArrayList<WeightedEdge> neighbors = adjList.get(tempNode.nodeValue);
+            for (WeightedEdge neighbor : neighbors) {
+                distance[neighbor.nodeValue] = Math.min(distance[neighbor.nodeValue],
+                        distance[tempNode.nodeValue] + neighbor.weight);
+                if(!visited[neighbor.nodeValue]) {
+                    visited[tempNode.nodeValue] = true;
+                    pQueue.add(new WeightedEdge(neighbor.nodeValue, neighbor.weight));
                 }
             }
         }

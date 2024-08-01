@@ -15,10 +15,8 @@ public class P10_FindFloor {
         if(numArray[mid] == numToFind || (numArray[mid] < numToFind && numToFind < numArray[mid + 1])) {
             return numArray[mid];
         }
-
         if(numArray[mid] > numToFind)
             return findNum(numArray, numToFind, start, mid - 1);
-
         else
             return findNum(numArray, numToFind, mid + 1, end);
     }

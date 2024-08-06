@@ -14,7 +14,6 @@ public class P077_Combinations {
             System.out.println(combinationsSoFar);
             return;
         }
-
         for(int i = index; i <= numRange; i++) {
             combinationsSoFar.add(i);
             findCombinations(numRange, K, i + 1, combinationsSoFar);

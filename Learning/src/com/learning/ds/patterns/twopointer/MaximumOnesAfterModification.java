@@ -3,31 +3,34 @@ package com.learning.ds.patterns.twopointer;
 import java.util.Arrays;
 
 /**
- * https://www.interviewbit.com/problems/maximum-ones-after-modification/
+ * https://algo.monster/liteproblems/1004
  */
 public class MaximumOnesAfterModification {
     public static void main(String[] args) {
-        int[] inArray = {1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1};
+        int[] inArray = {1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1};
         solution(inArray, 2);
     }
 
     private static void solution(int[] inArray, int allowedFlips) {
-        int slow = -1;
-        int fast = 0;
+        int left = 0;    // Initialize the left pointer of the window
+        int right = 0;   // Initialize the right pointer of the window
         int maxLength = 0;
-        int flipsDone = 0;
+        int flipsUsed = 0;
 
-        while (fast < inArray.length) {
-            if(inArray[fast] == 1) {
-                fast++;
-            } else if(inArray[fast] == 0 && flipsDone < allowedFlips) {
-                flipsDone++;
-                fast++;
-            } else if (inArray[fast] == 0 && flipsDone == allowedFlips) {
-                maxLength = Math.max((fast - slow), maxLength);
-                slow = fast;
-                flipsDone = 0;
+        while (right < inArray.length - 1) {
+            if(inArray[right] == 0) {
+                flipsUsed++;
             }
+            right++;
+            if(flipsUsed > allowedFlips) {
+                // Same logic as used in Variable length sliding Window
+                while (flipsUsed > allowedFlips) {
+                    if(inArray[left] == 0)
+                        flipsUsed--;
+                    left++;
+                }
+            }
+            maxLength = Math.max(maxLength, right - left);
         }
 
         System.out.println("Max length is: " + maxLength);

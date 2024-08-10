@@ -21,22 +21,20 @@ public class P1_SumSubarrayOfSizeK {
         }
     }
 
-    private static void find2(int[] inArray, int k) {
+    private static void find2(int[] inArray, int K) {
         int sum = 0;
         int start = 0;
         int end = 0;
         while (end < inArray.length) {
-            if (end < k) {
-                end++;
-                sum += inArray[end];
-                continue;
-            }
-            System.out.println("Sum: " + sum);
-            sum -= inArray[start];
             sum += inArray[end];
-            start++;
-            end++;
+            if (end - start + 1 < K) {
+                end++;
+            } else if(end - start + 1 == K){
+                System.out.println("Sum: " + sum);
+                sum -= inArray[start];
+                start++;
+                end++;
+            }
         }
-        System.out.println("Sum: " + sum);
     }
 }

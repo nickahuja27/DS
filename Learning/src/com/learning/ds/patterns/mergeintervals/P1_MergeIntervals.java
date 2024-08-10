@@ -16,6 +16,7 @@ public class P1_MergeIntervals {
     }
 
     private static void merge(List<Interval> intervalsList) {
+        // Sort the intervals on the startTime to ensure a.start <= b.start
         Stack<Interval> stack = new Stack<>();
         for(int i = 0; i < intervalsList.size(); i++) {
             Interval tempInterval = intervalsList.get(i);

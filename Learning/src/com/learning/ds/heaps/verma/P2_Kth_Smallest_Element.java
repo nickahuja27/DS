@@ -10,7 +10,7 @@ public class P2_Kth_Smallest_Element {
 
     private static void findKthElement(int[] inArray, int K) {
         // The question is asking for Smallest kth element, so we need to create Max Heap.
-        // In MAx heap, the top element will always be the largest.
+        // In Max heap, the top element will always be the largest.
         // LOOK AT THE LAMBDA IN THE QUEUE DEF.
         PriorityQueue<Integer> pQueue = new PriorityQueue<>((i1, i2) -> i2 - i1);
         for(int num : inArray) {

@@ -10,6 +10,26 @@ public class P4_FirstNegativeNum {
     }
 
     private static void findFirstNegative(int[] inArray, int windowSize) {
+        int start = 0;
+        int end = 0;
+        Queue<Integer> queue = new LinkedList<>();
+        while (end < inArray.length) {
+            if(inArray[end] < 0)
+                queue.add(inArray[end]);
+            if(end - start + 1 < windowSize) {
+                end++;
+            } else {
+                if(!queue.isEmpty()) {
+                    System.out.println("Number: " + queue.peek());
+                    if(queue.peek() == inArray[start])
+                        queue.poll();
+                } else {
+                    System.out.println("Number: -1");
+                }
 
+                start++;
+                end++;
+            }
+        }
     }
 }

@@ -28,6 +28,27 @@ public class P8_VariableSize_LargestSubArrayOfSum_K {
 
 
     private static void findLargest(int[] inArray, int sumToFind) {
+        int start = 0;
+        int end = 0;
+        int workingSum = 0;
+        int maxLength = 0;
 
+        while (end < inArray.length) {
+            workingSum += inArray[end];
+            if(workingSum < sumToFind) {
+                end++;
+            } else if(workingSum > sumToFind) {
+                while (workingSum > sumToFind) {
+                    workingSum -= inArray[start];
+                    start++;
+                }
+                end++;
+            } else {
+                maxLength = Math.max(maxLength, (end - start + 1));
+                end++;
+            }
+        }
+
+        System.out.println("Max Sum is: " + maxLength);
     }
 }

@@ -3,6 +3,7 @@ package com.learning.ds.patterns.slidingwindow.verma;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// Find maximum in an Sub Arrays of size K
 public class P6_FindMaxInSubArrays {
     public static void main(String[] args) {
         int[] inArray = {1, 3, -1, -3, -5, 3, 6, 7};

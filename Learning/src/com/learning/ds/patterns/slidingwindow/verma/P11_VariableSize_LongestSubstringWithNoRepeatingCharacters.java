@@ -8,34 +8,35 @@ public class P11_VariableSize_LongestSubstringWithNoRepeatingCharacters {
     }
 
     private static void find(String inString) {
+        HashMap<Character, Integer> charFreq = new HashMap<>();
+        int maxLength = Integer.MIN_VALUE;
         int start = 0;
         int end = 0;
-        HashMap<Character, Integer> counterMap = new HashMap<>();
-        int maxLength = 0;
 
+        // abcdeccfg
         while (end < inString.length()) {
-            counterMap.put(inString.charAt(end), counterMap.getOrDefault(inString.charAt(end), 0) + 1);
-
-            if((end - start + 1) == counterMap.size()) {
-                System.out.println("Length is: " + (end - start + 1));
-                maxLength = Math.max(maxLength, (end - start + 1));
-                end++;
-            } else if ((end - start + 1) > counterMap.size()) {
-                /** A B C A A B C D E A B C
-                 *          ^
-                 * when you hit A at index 4, you have to remove BCA from the map,
-                 * Hence the condition: "counterMap.get(inString.charAt(end)) != 1"
-                 */
-                while (start <= end && (end - start + 1) > counterMap.size() && counterMap.get(inString.charAt(end)) != 1) {
-                    char charToRemove = inString.charAt(start);
-                    counterMap.put(charToRemove, counterMap.get(charToRemove) - 1);
-                    if(counterMap.get(charToRemove) == 0)
-                        counterMap.remove(charToRemove);
+            int windowLength = end - start + 1;
+            charFreq.put(inString.charAt(end), charFreq.getOrDefault(inString.charAt(end), 0) + 1);
+            if(windowLength > charFreq.size()) {
+                char startChar = inString.charAt(start);
+                char endChar = inString.charAt(end);
+                while (start < end && windowLength > charFreq.size() && charFreq.get(endChar) != 1) {
+                    System.out.println("Start: " + end + ", startChar: " + startChar);
+                    System.out.println("End: " + end + ", endChar: " + endChar);
+                    charFreq.put(startChar, charFreq.get(inString.charAt(start)) - 1);
+                    if(charFreq.get(startChar) == 0) {
+                        charFreq.remove(inString.charAt(start));
+                    }
                     start++;
                 }
-                end++;
             }
+
+            if(windowLength == charFreq.size()) {
+                maxLength = Math.max(maxLength, windowLength);
+            }
+            end++;
         }
+
         System.out.println("Maximum Length is: " + maxLength);
     }
 }

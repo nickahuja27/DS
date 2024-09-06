@@ -10,19 +10,26 @@ public class P040_Combination_Sum_II {
         Arrays.sort(inArray);
         int target = 8;
         List<Integer> list = new ArrayList<>();
-        findCombinations(inArray, target, 0, list, 0);
+        List<List<Integer>> retList = new ArrayList<>();
+        combinationSum2(inArray, target, 0, list, retList, 0);
     }
 
-    private static void findCombinations(int[] inArray, int target, int index, List<Integer> list, int sumSoFar) {
+    private static void combinationSum2(int[] inArray, int target, int index, List<Integer> workingList, List<List<Integer>> retList, int sumSoFar) {
         if(sumSoFar == target) {
-            System.out.println(list);
+            System.out.println("Ans: " + workingList);
+            retList.add(new ArrayList(workingList));
             return;
         }
-        if(sumSoFar > target || index >= inArray.length) return;
+        if(index >= inArray.length || sumSoFar > target) {
+            return;
+        }
 
-        list.add(inArray[index]);
-        findCombinations(inArray, target, index + 1, list, sumSoFar + inArray[index]);
-        list.remove(list.size() - 1);
-        findCombinations(inArray, target, index + 1, list, sumSoFar);
+        for(int i = index;i < inArray.length; i++) {
+            if(i > index && inArray[i] == inArray[i-1])
+                continue;
+            workingList.add(inArray[i]);
+            combinationSum2(inArray, target, i + 1, workingList, retList, sumSoFar + inArray[i]);
+            workingList.remove(workingList.size() - 1);
+        }
     }
 }

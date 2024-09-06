@@ -2,7 +2,7 @@ package com.learning.ds.blind75.arrays;
 
 public class FindMinInRotatedSortedArray {
     public static void main(String[] args) {
-        int[] inArray = {4,5,6,7,8,9,0,1,2,3};
+        int[] inArray = {11,13,15,17};
         findSmallest(inArray, 0, inArray.length - 1);
     }
 
@@ -12,6 +12,7 @@ public class FindMinInRotatedSortedArray {
         int mid = (min + max) / 2;
         if(inArray[mid] > inArray[mid + 1] && inArray[mid] > inArray[mid - 1]) {
             System.out.println("Smallest Number is: " + inArray[mid + 1]);
+            return;
         }
 
         if(inArray[mid] > inArray[min]) {
